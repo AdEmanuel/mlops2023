@@ -177,3 +177,20 @@ movies_df["clean_title"] = movies_df["title"].apply(clean_movie_title)
 tfidf_vectorizer = TfidfVectorizer(ngram_range=(1, 2))
 # Calcula o TF-IDF para os títulos de filmes limpos
 tfidf_matrix = tfidf_vectorizer.fit_transform(movies_df["clean_title"])
+
+# Use a função de pesquisa para encontrar o filme correspondente
+results = search_movie_by_title_similarity(movie_title)
+
+if not results.empty:
+  # Obtém o ID do filme correspondente
+  movie_id = results.iloc[0]["movieId"]
+  
+  # Função find_similar_movies encontra os 10 filmes mais similares
+  similar_movies = find_similar_movies(movie_id)
+  
+  # Exibe os resultados da busca
+  if similar_movies.empty:
+    print(f"Não há sugestões de similaridade para o filme '{movie_title}' ")
+  else: 
+    print(f"Os 10 filmes mais similares a {movie_title} são:")
+    print(similar_movies)
