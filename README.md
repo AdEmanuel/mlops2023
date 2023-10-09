@@ -1,2 +1,16 @@
-# mlops2023
-Este repositório contém os projetos desenvolvidos para o componente curricular DCA0305 - PROJETO DE SISTEMAS BASEADOS EM APRENDIZADO DE MÁQUINA da Universidade Federal do Rio Grande do Norte (UFRN).
+# Projeto de Sistemas Baseados em Aprendizado de Máquina
+
+##Identiificação e Afiliação
+Sou Adson Emnauel, aluno de gradução vinculado ao curso de Engenharia de Computação da Universidade Federal do Rio Grande do Norte. Este reposítio foi criado como parte do componente curricular DCA0305 - 
+Projeto de Sistemas Baseados em Aprendizado de Máquina ministrado pelo Professor Ivanovitch Medeiros.
+
+## Introduction 
+
+MLOps, ou DevOps para Machine Learning, é uma metodologia que visa aperfeiçoar o ciclo de vida de modelos de aprendizado de máquina, desde o desenvolvimento até a implantação e monitoramento em produção. Tal metodologia possui uma importância evidente devido a crescente adoção de inteligência artificial e aprendizado de máquina em diversas áreas. Nesse contexto, ao adotar práticas de MLOps, as equipes podem colaborar de maneira mais eficaz, automatizar tarefas repetitivas, rastrear mudanças nos modelos e dados, e responder rapidamente a desafios emergentes.
+
+## Projetos: 
+
+
+##License:
+
+
