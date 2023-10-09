@@ -12,7 +12,7 @@ MLOps, ou DevOps para Machine Learning, é uma metodologia que visa aperfeiçoar
 
 
 ## License:
-Este projeto é licenciado sob os termos da Licença MIT - consulte o arquivo [LICENSE]([link-para-o-arquivo/LICENSE](https://github.com/AdEmanuel/mlops2023/blob/main/LICENSE)https://github.com/AdEmanuel/mlops2023/blob/main/LICENSE) para obter detalhes. 
+Este projeto é licenciado sob os termos da Licença MIT - consulte o arquivo [LICENSE](https://github.com/AdEmanuel/mlops2023/blob/main/LICENSE) para obter detalhes. 
 
 ## Referências:
  - [Repositório - Ivanovitch](https://github.com/ivanovitchm/mlops)
