@@ -16,6 +16,6 @@ Além dessas práticas sólidas, fez-se uso da ferramenta GitHub Codespaces, uma
 
 Os códigos neste repositório têm como base projetos de portfólio encontrados no  [Dataquest.io] (https://app.dataquest.io/projects/portfolio). Aqui, foram aplicados os conhecimentos detalhados anteriormente sobre MLOps, visando aprimorar a confiabilidade e a eficiência desses códigos.
 
-- [Projeto 1](https://github.com/AdEmanuel/mlops2023/tree/main/Python_Essentials_for_MLOps/Project%2001) - Sistema de Recomendação de Filmes in Python
+- [Projeto 1](https://github.com/AdEmanuel/mlops2023/tree/main/Python_Essentials_for_MLOps/Project%2001) - Sistema de Recomendação de Filmes em Python
 
 
