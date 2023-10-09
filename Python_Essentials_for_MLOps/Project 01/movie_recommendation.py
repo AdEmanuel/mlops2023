@@ -128,7 +128,7 @@ def search_movie_by_title_similarity(query_title: str) -> pd.DataFrame:
   cosine_similarities = cosine_similarity(query_vector, tfidf_matrix).flatten()
   top_movie_indices = np.argpartition(cosine_similarities, -5)[-5:]
   top_movie_results = movies_df.iloc[top_movie_indices].iloc[::-1]
-
+  
   return top_movie_results
 
 def find_similar_movies(movie_id: int) -> pd.DataFrame:
@@ -157,40 +157,42 @@ def find_similar_movies(movie_id: int) -> pd.DataFrame:
 
   return rec_percentages.head(10).merge(movies_df, left_index=True, right_on="movieId")[["score", "title", "genres"]]
 
-#Tratamento para receber o título do filme através da linha de comando
-parser = argparse.ArgumentParser(description='Recomendador de Filmes')
-parser.add_argument('-movie_title', type=str, help='Título do filme para pesquisa de similaridade')
-args = parser.parse_args()
-movie_title = args.movie_title
+if __name__ == '__main__':
 
-# Download dos datasets
-download_dataset()
+  #Tratamento para receber o título do filme através da linha de comando
+  parser = argparse.ArgumentParser(description='Recomendador de Filmes')
+  parser.add_argument('-movie_title', type=str, help='Título do filme para pesquisa de similaridade')
+  args = parser.parse_args()
+  movie_title = args.movie_title
 
-# Carrega os datasets necessários
-movies_df = load_csv("./ml-25m/movies.csv")
-ratings_df = load_csv("./ml-25m/ratings.csv")
+  # Download dos datasets
+  download_dataset()
 
-# Adicionando ao dataset nova coluna com títulos de filmes sem caracteres especiais
-movies_df["clean_title"] = movies_df["title"].apply(clean_movie_title)
+  # Carrega os datasets necessários
+  movies_df = load_csv("./ml-25m/movies.csv")
+  ratings_df = load_csv("./ml-25m/ratings.csv")
 
-# Cria uma instância do TfidfVectorizer para calcular o TF-IDF
-tfidf_vectorizer = TfidfVectorizer(ngram_range=(1, 2))
-# Calcula o TF-IDF para os títulos de filmes limpos
-tfidf_matrix = tfidf_vectorizer.fit_transform(movies_df["clean_title"])
+  # Adicionando ao dataset nova coluna com títulos de filmes sem caracteres especiais
+  movies_df["clean_title"] = movies_df["title"].apply(clean_movie_title)
 
-# Use a função de pesquisa para encontrar o filme correspondente
-results = search_movie_by_title_similarity(movie_title)
+  # Cria uma instância do TfidfVectorizer para calcular o TF-IDF
+  tfidf_vectorizer = TfidfVectorizer(ngram_range=(1, 2))
+  # Calcula o TF-IDF para os títulos de filmes limpos
+  tfidf_matrix = tfidf_vectorizer.fit_transform(movies_df["clean_title"])
 
-if not results.empty:
-  # Obtém o ID do filme correspondente
-  movie_id = results.iloc[0]["movieId"]
-  
-  # Função find_similar_movies encontra os 10 filmes mais similares
-  similar_movies = find_similar_movies(movie_id)
-  
-  # Exibe os resultados da busca
-  if similar_movies.empty:
-    print(f"Não há sugestões de similaridade para o filme '{movie_title}' ")
-  else: 
-    print(f"Os 10 filmes mais similares a {movie_title} são:")
-    print(similar_movies)
+  # Use a função de pesquisa para encontrar o filme correspondente
+  results = search_movie_by_title_similarity(movie_title)
+
+  if not results.empty:
+    # Obtém o ID do filme correspondente
+    movie_id = results.iloc[0]["movieId"]
+    
+    # Função find_similar_movies encontra os 10 filmes mais similares
+    similar_movies = find_similar_movies(movie_id)
+    
+    # Exibe os resultados da busca
+    if similar_movies.empty:
+      print(f"Não há sugestões de similaridade para o filme '{movie_title}' ")
+    else: 
+      print(f"Os 10 filmes mais similares a {movie_title} são:")
+      print(similar_movies)
