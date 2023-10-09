@@ -1,7 +1,7 @@
 # Projeto de Sistemas Baseados em Aprendizado de Máquina
 
 ## Identiificação e Afiliação
-Sou Adson Emnauel, aluno de gradução vinculado ao curso de Engenharia de Computação da Universidade Federal do Rio Grande do Norte. Este reposítio foi criado como parte do componente curricular DCA0305 - 
+Sou Adson Emnauel, aluno de gradução vinculado ao curso de Engenharia de Computação da Universidade Federal do Rio Grande do Norte. Este repositório foi criado como parte do componente curricular DCA0305 - 
 Projeto de Sistemas Baseados em Aprendizado de Máquina, ministrado pelo Professor Ivanovitch Medeiros.
 
 ## Introduction 
