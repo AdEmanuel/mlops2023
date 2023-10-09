@@ -86,7 +86,7 @@ def download_dataset() -> None:
         logging.error("Ocorreu um erro inesperado: %s", str(error))
 
 def load_csv(filepath: str) -> pd.DataFrame:
-    """
+    """pylint
     Carrega um arquivo CSV em um DataFrame.
 
     Args:
@@ -99,8 +99,8 @@ def load_csv(filepath: str) -> pd.DataFrame:
         # Carrega o arquivo CSV em um DataFrame
         data_frame = pd.read_csv(filepath)
         return data_frame
-    except Exception as error:
-        print("Ocorreu um erro ao carregar o arquivo CSV: %s", str(error))
+    except pd.errors.ParserError as parser_error:
+        print("Ocorreu um erro ao carregar o arquivo CSV: %s", str(parser_error))
         return None
 
 def clean_movie_title(movie_title_input: str) -> str:
@@ -147,12 +147,19 @@ def find_similar_movies(reference_movie_id: int) -> pd.DataFrame:
       pd.DataFrame: DataFrame contendo os filmes mais semelhantes ao filme de referência
     """
 
-    similar_users = ratings_df[(ratings_df["movieId"] == reference_movie_id) & (ratings_df["rating"] > 4)]["userId"].unique()
-    similar_user_recs = ratings_df[(ratings_df["userId"].isin(similar_users)) & (ratings_df["rating"] > 4)]["movieId"]
+    similar_users = ratings_df[
+        (ratings_df["movieId"] == reference_movie_id) &
+        (ratings_df["rating"] > 4)
+    ]["userId"].unique()
+    similar_user_recs = ratings_df[
+        (ratings_df["userId"].isin(similar_users)) &
+        (ratings_df["rating"] > 4
+    )]["movieId"]
     similar_user_recs = similar_user_recs.value_counts() / len(similar_users)
 
     similar_user_recs = similar_user_recs[similar_user_recs > .10]
-    all_users = ratings_df[(ratings_df["movieId"].isin(similar_user_recs.index)) & (ratings_df["rating"] > 4)]
+    all_users = ratings_df[
+        (ratings_df["movieId"].isin(similar_user_recs.index)) & (ratings_df["rating"] > 4)]
     all_user_recs = all_users["movieId"].value_counts() / len(all_users["userId"].unique())
     rec_percentages = pd.concat([similar_user_recs, all_user_recs], axis=1)
     rec_percentages.columns = ["similar", "all"]
@@ -160,13 +167,18 @@ def find_similar_movies(reference_movie_id: int) -> pd.DataFrame:
     rec_percentages["score"] = rec_percentages["similar"] / rec_percentages["all"]
     rec_percentages = rec_percentages.sort_values("score", ascending=False)
 
-    return rec_percentages.head(10).merge(movies_df, left_index=True, right_on="movieId")[["score", "title", "genres"]]
+    return (
+        rec_percentages.head(10).merge(movies_df, left_index=True, right_on="movieId")
+        [["score", "title", "genres"]]
+    )
 
 if __name__ == '__main__':
 
     #Tratamento para receber o título do filme através da linha de comando
     parser = argparse.ArgumentParser(description='Recomendador de Filmes')
-    parser.add_argument('-movie_title', type=str, help='Título do filme para pesquisa de similaridade')
+    parser.add_argument(
+        '-movie_title', type=str, help='Título do filme para pesquisa de similaridade'
+    )
     args = parser.parse_args()
     movie_title = args.movie_title
 
@@ -197,7 +209,7 @@ if __name__ == '__main__':
 
         # Exibe os resultados da busca
         if similar_movies.empty:
-            print("Não há sugestões de similaridade para o filme '%s' ", movie_title)
+            print(f"Não há sugestões de similaridade para o filme {movie_title}")
         else:
-            print("Os 10 filmes mais similares a %s são: ", movie_title)
+            print(f"Os 10 filmes mais similares a {movie_title} são:", )
             print(similar_movies)
