@@ -1,2 +1,2 @@
 # mlops2023
-Repository for the projects developed in the course Design of Systems based on Machine Learning
+Este repositório contém os projetos desenvolvidos para o componente curricular DCA0305 - PROJETO DE SISTEMAS BASEADOS EM APRENDIZADO DE MÁQUINA da Universidade Federal do Rio Grande do Norte (UFRN).
