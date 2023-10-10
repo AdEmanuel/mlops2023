@@ -20,4 +20,12 @@ Os códigos neste repositório têm como base projetos de portfólio encontrados
 
 - [Projeto 1](https://github.com/AdEmanuel/mlops2023/tree/main/Python_Essentials_for_MLOps/Project%2001) - Sistema de Recomendação de Filmes em Python
 
+## Video
+
+Vídeo em que é falado um pouco sobre os projetos e como eles funcionam: 
+
+## Certificado
+
+Certificado do curso: [Intermediate Python for Web Development](https://app.dataquest.io/view_cert/GFX8K38JAY2DXLRYRHIX)
+
 
