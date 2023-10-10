@@ -1,15 +1,13 @@
+#import pytest
 import pandas as pd
-from movie_recommendation import clean_movie_title
+from movie_recommendation import clean_movie_title, search_movie_by_title_similarity, find_similar_movies
 
 def test_clean_movie_title():
-    
-    """
-    Testa a função clean_movie_title para garantir que ela remove os caracteres especiais das strings passadas
-    """
+        
+        """
+        Testa a função clean_movie_title para garantir que ela remove os caracteres especiais das strings passadas
+        """
 
-    assert clean_movie_title('Jumanji (1995)') == 'Jumanji 1995'
-    assert clean_movie_title('Twelve Monkeys (a.k.a. 12 Monkeys) (1995)') == 'Twelve Monkeys aka 12 Monkeys 1995'
-    assert clean_movie_title('Arsenio Hall: Smart and Classy (2019)') == 'Arsenio Hall Smart and Classy 2019'
-
-
-
+        assert clean_movie_title('Jumanji (1995)') == 'Jumanji 1995'
+        assert clean_movie_title('F.U.B.A.R (2019)') == 'FUBAR 2019'
+        assert clean_movie_title('Gumby: The Movie (1995)') == 'Gumby The Movie 1995'
