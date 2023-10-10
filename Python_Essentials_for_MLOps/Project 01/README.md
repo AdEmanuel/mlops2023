@@ -38,7 +38,7 @@ Um exemplo de execução do programa pode ser visto a seguir:
 
 ## Aplicação de Ferramentas
 
-# Pontuação de qualidade atribuída pelo Pylint
+### Pontuação de qualidade atribuída pelo Pylint
 
 - movie_recommendation.py
 
@@ -48,6 +48,6 @@ Um exemplo de execução do programa pode ser visto a seguir:
 
 <img src="./imagens/pylint_test.png">
 
-# Saída dos testes do Pytest
+### Saída dos testes do Pytest
 
 <img src="./imagens/pytest_movie.png">
