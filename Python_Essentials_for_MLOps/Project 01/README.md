@@ -34,12 +34,20 @@ python movie_recommendation.py -movie_title "Título do Filme"
 
 Um exemplo de execução do programa pode ser visto a seguir: 
 
+<img src="./imagens/exec_movie.png">
+
 ## Aplicação de Ferramentas
 
 # Pontuação de qualidade atribuída pelo Pylint
 
 - movie_recommendation.py
 
+<img src="./imagens/pylint_movie.png">
+
 - test_movie_recommendation.py
 
+<img src="./imagens/pylint_test.png">
+
 # Saída dos testes do Pytest
+
+<img src="./imagens/pytest_movie.png">
