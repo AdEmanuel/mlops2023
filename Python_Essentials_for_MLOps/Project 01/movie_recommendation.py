@@ -86,7 +86,7 @@ def download_dataset() -> None:
         logging.error("Ocorreu um erro inesperado: %s", str(error))
 
 def load_csv(filepath: str) -> pd.DataFrame:
-    """pylint
+    """
     Carrega um arquivo CSV em um DataFrame.
 
     Args:
