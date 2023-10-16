@@ -22,7 +22,7 @@ Os códigos neste repositório têm como base projetos de portfólio encontrados
 
 ## Video
 
-Vídeo em que é falado um pouco sobre os projetos e como eles funcionam: 
+Vídeo em que é falado um pouco sobre os projetos e como eles funcionam: [Apresentação do Repositório mlops2023](https://www.loom.com/share/49e706ceaac4466489bbcbe24207760a?sid=37f1bbac-a4e2-4e99-a799-b64d70ff9ee0)
 
 ## Certificado
 
